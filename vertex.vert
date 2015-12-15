@@ -1,15 +1,13 @@
 attribute vec3 vertex_position;
 attribute vec2 texture_coords;
 
-uniform mat4 perspective;
-uniform mat4 transformation;
+uniform mat4 PMatrix;
+uniform mat4 MMatrix;
+uniform mat4 VMatrix;
 
 varying vec2 texcoords;
-//varying vec3 vColor;
 
 void main() {
-    gl_Position = perspective * transformation * vec4(vertex_position,1.0);
-
-    //vColor = vertex_position;
+    gl_Position = PMatrix * VMatrix * MMatrix * vec4(vertex_position, 1.0);
     texcoords = texture_coords;
 }
