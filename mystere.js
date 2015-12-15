@@ -262,8 +262,9 @@ function initBuffers() {
 function drawCube() {
 
   mat4.identity(modelMatrix);
-  mat4.rotateY(modelMatrix, modelMatrix, time, [0, 0, 0]);
-  mat4.translate(modelMatrix, modelMatrix, [0, 0, 0]);
+  mat4.rotateY(modelMatrix, modelMatrix, time);
+  mat4.translate(modelMatrix, modelMatrix, [4, 1.5, -5]);
+  mat4.scale(modelMatrix, modelMatrix, [1, 1.5, 1]);
 
   gl.uniformMatrix4fv(uModel, false, modelMatrix);
 
